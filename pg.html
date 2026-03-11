@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PG Admission Form – Portal 2026</title>
+    <meta name="description" content="PG Admission Enquiry Form 2026 – Apply for MBA, MCA and M.Tech programs." />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- MVIT COLLEGE HEADER -->
+  <div class="college-header no-print">
+    <img src="new_college_logo.png" alt="MVIT Logo" class="clg-logo" />
+    <div class="college-header-text">
+        <div class="college-header-name">
+            <span class="clg-abbr">MANAKULA VINAYAGAR</span><br>INSTITUTE OF TECHNOLOGY
+        </div>
+        <div class="college-header-divider"></div>
+        <div class="college-header-sub">Affiliated to Pondicherry University &nbsp;|&nbsp; Approved by AICTE, New Delhi</div>
+        <div class="college-header-sub">Accredited by NBA, New Delhi &amp; NAAC with 'A' Grade</div>
+        <div class="college-header-tag">An Autonomous Institution &nbsp;&bull;&nbsp; Kaliteerthalkuppam, Puducherry – 605 107</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="index.html">
+            <div class="navbar-logo">🎓</div>
+            <span class="navbar-title">Admission <span>Portal</span></span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="ug.html">UG Admission</a>
+            <a class="nav-link active" href="pg.html">PG Admission</a>
+            <a class="nav-link" href="lateral.html">Lateral Entry</a>
+            <a class="nav-link" href="admin.html">Admin</a>
+        </div>
+    </nav>
+
+    <div class="form-page">
+
+        <!-- PAGE HEADER -->
+        <div class="form-page-header">
+            <div>
+                <div class="form-page-title">PG Admission Form
+                    <span>MBA / MCA / M.Tech – Enquiry 2026</span>
+                </div>
+            </div>
+            <button class="print-btn no-print">🖨️ Print Form</button>
+        </div>
+
+        <form id="pg-form" novalidate>
+
+            <!-- ══ PERSONAL INFORMATION ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">👤 Personal Information</div>
+                    <div>
+                        <div class="section-date-label">Date</div>
+                        <input type="date" class="section-date-input" id="pg-date"  required />
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label" for="pg-name">Student Name <span class="req">*</span></label>
+                            <input type="text" id="pg-name" class="form-control caps-field"
+                                placeholder="STUDENT FULL NAME" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pg-father">Father's Name <span class="req">*</span></label>
+                            <input type="text" id="pg-father" class="form-control caps-field"
+                                placeholder="FATHER'S FULL NAME" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pg-dob">Date of Birth <span class="req">*</span></label>
+                            <input type="date" id="pg-dob" class="form-control" data-dob="pg-age" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pg-age">Age (Auto-calculated) <span class="req">*</span></label>
+                            <input type="number" id="pg-age" class="form-control" readonly placeholder="Auto" />
+                        </div>
+                        <div class="form-group form-full">
+                            <label class="form-label">Gender <span class="req">*</span></label>
+                            <div class="toggle-group" id="pg-gender-group" data-input="pg-gender">
+                                <button type="button" class="toggle-pill" data-value="Male">♂ Male</button>
+                                <button type="button" class="toggle-pill" data-value="Female">♀ Female</button>
+                            </div>
+                            <input type="hidden" id="pg-gender" />
+                        </div>
+                        <div class="form-group form-full">
+                            <label class="form-label">Community <span class="req">*</span></label>
+                            <div class="toggle-group" id="pg-community-group" data-input="pg-community">
+                                <button type="button" class="toggle-pill" data-value="OBC">OBC</button>
+                                <button type="button" class="toggle-pill" data-value="MBC">MBC</button>
+                                <button type="button" class="toggle-pill" data-value="OC">OC</button>
+                                <button type="button" class="toggle-pill" data-value="SC">SC</button>
+                                <button type="button" class="toggle-pill" data-value="ST">ST</button>
+                                <button type="button" class="toggle-pill" data-value="Others">Others</button>
+                            </div>
+                            <input type="hidden" id="pg-community" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pg-referred">Referred By <span class="req">*</span></label>
+                            <input type="text" id="pg-referred" class="form-control caps-field"
+                                placeholder="REFERRED BY (IF ANY)"  required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ CONTACT DETAILS ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">📞 Contact Details</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid form-grid-2">
+                        <div class="form-group form-full">
+                            <label class="form-label" for="pg-address">Address <span class="req">*</span></label>
+                            <textarea id="pg-address" class="form-control" placeholder="Full home address…"
+                                required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pg-parent-mobile">Parent Mobile <span
+                                    class="req">*</span></label>
+                            <input type="tel" id="pg-parent-mobile" class="form-control"
+                                placeholder="Parent 10-digit mobile" maxlength="10" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pg-student-mobile">Student Mobile <span class="req">*</span></label>
+                            <input type="tel" id="pg-student-mobile" class="form-control"
+                                placeholder="Student 10-digit mobile" maxlength="10"  required />
+                        </div>
+                        <div class="form-group form-full">
+                            <label class="form-label" for="pg-email">Email Address <span class="req">*</span></label>
+                            <input type="email" id="pg-email" class="form-control" placeholder="student@email.com"  required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ SSLC DETAILS ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">📋 SSLC Details</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label" for="pg-sslc-year">Month &amp; Year of Passing <span class="req">*</span></label>
+                            <input type="month" id="pg-sslc-year" class="form-control"  required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Marks / Max <span class="req">*</span></label>
+                            <div class="marks-row">
+                                <input type="number" id="pg-sslc-marks" class="form-control" placeholder="Marks" min="0"
+                                    max="500" data-marks="500,pg-sslc-perc"  required />
+                                <span class="marks-sep">/</span>
+                                <div class="marks-total">500</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pg-sslc-perc">Percentage <span class="req">*</span></label>
+                            <input type="text" id="pg-sslc-perc" class="form-control" readonly
+                                placeholder="Auto-calculated" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pg-sslc-school">School Name <span class="req">*</span></label>
+                            <select id="pg-sslc-school" class="form-control" data-school-select="other-school-wrap-pg" required>
+                                <option value="">— Select School —</option>
+                                <option>Petit Seminaire Higher Secondary School</option>
+                                <option>St. Patrick's Higher Secondary School</option>
+                                <option>Vivekananda Higher Secondary School</option>
+                                <option>Amalorpavam Higher Secondary School</option>
+                                <option>Immaculate Heart of Mary Girls HSS</option>
+                                <option>Achariya Bala Siksha Mandir</option>
+                                <option>Jawahar Navodaya Vidyalaya</option>
+                                <option>Seventh Day Adventist School</option>
+                                <option>Alpha Matriculation School</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div id="other-school-wrap-pg">
+                                <input type="text" id="pg-sslc-school-other" class="form-control caps-field"
+                                    placeholder="ENTER SCHOOL NAME" style="margin-top:.5rem"  required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ DEGREE DETAILS ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">🎓 Degree Details</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label" for="pg-degree-name">Degree Name <span
+                                    class="req">*</span></label>
+                            <input type="text" id="pg-degree-name" class="form-control caps-field"
+                                placeholder="E.g. B.E COMPUTER SCIENCE" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pg-degree-year">Month &amp; Year of Passing <span
+                                    class="req">*</span></label>
+                            <input type="month" id="pg-degree-year" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pg-degree-cgpa">CGPA <span
+                                    class="req">*</span></label>
+                            <input type="number" id="pg-degree-cgpa" class="form-control" placeholder="E.g. 8.5" min="0" max="10" step="0.01"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pg-degree-perc">Percentage (Auto) <span
+                                    class="req">*</span></label>
+                            <input type="text" id="pg-degree-perc" class="form-control" readonly
+                                placeholder="Auto-calculated" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pg-university">University Name <span
+                                    class="req">*</span>
+                            <input type="text" id="pg-university" class="form-control caps-field"
+                                placeholder="E.g. PONDICHERRY UNIVERSITY" required />
+                        </div>
+                        <div class="form-group form-full">
+                            <label class="form-label" for="pg-college">College Name <span class="req">*</span>
+                            <input type="text" id="pg-college" class="form-control caps-field" list="college-list"
+                                placeholder="COLLEGE NAME" required autocomplete="off" />
+                            <datalist id="college-list">
+                                <!-- Populated dynamically by script.js -->
+                            </datalist>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ COURSE SELECTION ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">📖 Course Selection (Select One)</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="toggle-group" id="course-group" data-input="pg-course">
+                        <button type="button" class="toggle-pill" data-value="MBA">MBA</button>
+                        <button type="button" class="toggle-pill" data-value="MCA">MCA</button>
+                        <button type="button" class="toggle-pill" data-value="MTECH">M.TECH</button>
+                    </div>
+                    <input type="hidden" id="pg-course" />
+                </div>
+            </div>
+
+            <!-- ══ SIGNATURE ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">✍️ Signature</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="signature-row">
+                        <div>
+                            <div class="form-label" style="margin-bottom:.5rem">Parent / Guardian Signature</div>
+                            <div class="signature-box">
+                                <div class="signature-line"></div>
+                                <div class="signature-label">Parent / Guardian Signature</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-label" style="margin-bottom:.5rem">Student Signature</div>
+                            <div class="signature-box">
+                                <div class="signature-line"></div>
+                                <div class="signature-label">Student Signature</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="form-actions no-print">
+                <button type="button" class="btn btn-secondary" onclick="location.href='index.html'">← Back to
+                    Home</button>
+                <button type="button" class="btn btn-secondary print-btn">🖨️ Print Form</button>
+                <button type="button" class="btn btn-download-pdf btn" onclick="downloadPGPDF()">⬇️ Download
+                    PDF</button>
+                <button type="button" class="btn btn-primary" id="pg-submit-btn">Submit Application</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="js/script.js"></script>
+    <!-- PDF Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/pdf-generator.js"></script>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        © 2026 <span>AIML Department</span> · Maanakula Vinayagar Institute of Technology. All rights reserved.
+    </footer>
+</body>
+
+</html>

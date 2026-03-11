@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard – Admission Portal 2026</title>
+    <meta name="description" content="Admin Dashboard to view, filter and export all admission enquiries." />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- SheetJS for Excel export -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+
+    <!-- LOGIN OVERLAY -->
+    <div class="admin-login-overlay" id="login-overlay">
+        <div class="admin-login-card">
+            <div class="admin-login-icon">🔐</div>
+            <h2>Admin Login</h2>
+            <p>Enter the admin password to access the dashboard.</p>
+            <div class="form-group" style="margin-bottom:1rem;text-align:left">
+                <label class="form-label" for="admin-pw" style="color:rgba(255,255,255,.7)">Password</label>
+                <input type="password" id="admin-pw" class="form-control" placeholder="Enter password"
+                    style="margin-top:.3rem" />
+            </div>
+            <button class="btn btn-primary" id="login-btn" style="width:100%">🔓 Login</button>
+            <p style="color:rgba(255,255,255,.4);font-size:.75rem;margin-top:1rem">Default: admin@2026</p>
+        </div>
+    </div>
+
+    <!-- MVIT COLLEGE HEADER -->
+  <div class="college-header no-print">
+    <img src="new_college_logo.png" alt="MVIT Logo" class="clg-logo" />
+    <div class="college-header-text">
+        <div class="college-header-name">
+            <span class="clg-abbr">MANAKULA VINAYAGAR</span><br>INSTITUTE OF TECHNOLOGY
+        </div>
+        <div class="college-header-divider"></div>
+        <div class="college-header-sub">Affiliated to Pondicherry University &nbsp;|&nbsp; Approved by AICTE, New Delhi</div>
+        <div class="college-header-sub">Accredited by NBA, New Delhi &amp; NAAC with 'A' Grade</div>
+        <div class="college-header-tag">An Autonomous Institution &nbsp;&bull;&nbsp; Kaliteerthalkuppam, Puducherry – 605 107</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="index.html">
+            <div class="navbar-logo">🎓</div>
+            <span class="navbar-title">Admission <span>Portal</span></span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="ug.html">UG Admission</a>
+            <a class="nav-link" href="pg.html">PG Admission</a>
+            <a class="nav-link" href="lateral.html">Lateral Entry</a>
+            <a class="nav-link active" href="admin.html">Admin</a>
+        </div>
+    </nav>
+
+    <div class="admin-page">
+
+        <!-- HEADER -->
+        <div class="admin-header">
+            <div>
+                <div class="admin-title">Admin Dashboard
+                    <span>All Admissions – 2026 Batch</span>
+                </div>
+            </div>
+            <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+                <button class="btn btn-success" id="export-btn">📥 Export to Excel</button>
+                <button class="btn btn-secondary" onclick="loadAllData()"
+                    style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3)">🔄
+                    Refresh</button>
+            </div>
+        </div>
+
+        <!-- STATS -->
+        <div class="admin-stats-row">
+            <div class="admin-stat-card">
+                <div class="admin-stat-num" id="stat-total">—</div>
+                <div class="admin-stat-label">Total Applications</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="admin-stat-num" style="color:#1d4ed8" id="stat-ug">—</div>
+                <div class="admin-stat-label">UG Applications</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="admin-stat-num" style="color:#059669" id="stat-pg">—</div>
+                <div class="admin-stat-label">PG Applications</div>
+            </div>
+            <div class="admin-stat-card">
+                <div class="admin-stat-num" style="color:#b45309" id="stat-le">—</div>
+                <div class="admin-stat-label">Lateral Entry</div>
+            </div>
+        </div>
+
+        <!-- FILTER BAR -->
+        <div class="admin-filter-bar">
+            <!-- Tab Switcher -->
+            <div style="display:flex;gap:.5rem">
+                <button class="btn btn-primary active" data-tab="ug"
+                    style="padding:.5rem 1rem;font-size:.82rem">UG</button>
+                <button class="btn btn-secondary" data-tab="pg" style="padding:.5rem 1rem;font-size:.82rem">PG</button>
+                <button class="btn btn-secondary" data-tab="le"
+                    style="padding:.5rem 1rem;font-size:.82rem">Lateral</button>
+            </div>
+            <!-- Department filter -->
+            <select class="form-control" id="filter-dept" style="max-width:200px">
+                <option value="">All Departments</option>
+                <option>MECH</option>
+                <option>ECE</option>
+                <option>CSE</option>
+                <option>IT</option>
+                <option>EEE</option>
+                <option>FTECH</option>
+                <option>ROBOTICS</option>
+                <option>IOT</option>
+                <option>AIML</option>
+                <option>MBA</option>
+                <option>MCA</option>
+                <option>MTECH</option>
+            </select>
+            <!-- Search -->
+            <input type="text" class="form-control" id="search-input" placeholder="🔍 Search by name, mobile, email…"
+                style="max-width:280px" />
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-wrap">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Student Name</th>
+                        <th>Father's Name</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                        <th>Branch / Course</th>
+                        <th>Type</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="admin-tbody">
+                    <tr>
+                        <td colspan="8" class="empty-state">
+                            <div class="empty-state-icon">🔐</div>
+                            <p>Please login to view data</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- DETAIL MODAL -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>👤 <span id="modal-name">Student Details</span></h3>
+                <button class="modal-close" id="modal-close">✕</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+    <!-- Tab button active style fix -->
+    <script>
+        document.querySelectorAll('[data-tab]').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('[data-tab]').forEach(b => {
+                    b.classList.remove('btn-primary');
+                    b.classList.add('btn-secondary');
+                });
+                this.classList.remove('btn-secondary');
+                this.classList.add('btn-primary');
+            });
+        });
+    </script>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        © 2026 <span>AIML Department</span> · Maanakula Vinayagar Institute of Technology. All rights reserved.
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lateral Entry Admission Form – Portal 2026</title>
+    <meta name="description"
+        content="Lateral Entry Admission Enquiry Form 2026 – Diploma to B.E / B.Tech direct 2nd year entry." />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- MVIT COLLEGE HEADER -->
+  <div class="college-header no-print">
+    <img src="new_college_logo.png" alt="MVIT Logo" class="clg-logo" />
+    <div class="college-header-text">
+        <div class="college-header-name">
+            <span class="clg-abbr">MANAKULA VINAYAGAR</span><br>INSTITUTE OF TECHNOLOGY
+        </div>
+        <div class="college-header-divider"></div>
+        <div class="college-header-sub">Affiliated to Pondicherry University &nbsp;|&nbsp; Approved by AICTE, New Delhi</div>
+        <div class="college-header-sub">Accredited by NBA, New Delhi &amp; NAAC with 'A' Grade</div>
+        <div class="college-header-tag">An Autonomous Institution &nbsp;&bull;&nbsp; Kaliteerthalkuppam, Puducherry – 605 107</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="index.html">
+            <div class="navbar-logo">🎓</div>
+            <span class="navbar-title">Admission <span>Portal</span></span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="ug.html">UG Admission</a>
+            <a class="nav-link" href="pg.html">PG Admission</a>
+            <a class="nav-link active" href="lateral.html">Lateral Entry</a>
+            <a class="nav-link" href="admin.html">Admin</a>
+        </div>
+    </nav>
+
+    <div class="form-page">
+
+        <!-- PAGE HEADER -->
+        <div class="form-page-header">
+            <div>
+                <div class="form-page-title">Lateral Entry Form
+                    <span>Diploma → B.E / B.Tech (2nd Year) – Enquiry 2026</span>
+                </div>
+            </div>
+            <button class="print-btn no-print">🖨️ Print Form</button>
+        </div>
+
+        <form id="le-form" novalidate>
+
+            <!-- ══ PERSONAL INFORMATION ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">👤 Personal Information</div>
+                    <div>
+                        <div class="section-date-label">Date</div>
+                        <input type="date" class="section-date-input" id="le-date"  required />
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label" for="le-name">Student Name <span class="req">*</span></label>
+                            <input type="text" id="le-name" class="form-control caps-field"
+                                placeholder="STUDENT FULL NAME" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="le-father">Father's Name <span class="req">*</span></label>
+                            <input type="text" id="le-father" class="form-control caps-field"
+                                placeholder="FATHER'S FULL NAME" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="le-dob">Date of Birth <span class="req">*</span></label>
+                            <input type="date" id="le-dob" class="form-control" data-dob="le-age" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="le-age">Age (Auto-calculated)</label>
+                            <input type="number" id="le-age" class="form-control" readonly placeholder="Auto" />
+                        </div>
+                        <div class="form-group form-full">
+                            <label class="form-label">Gender <span class="req">*</span></label>
+                            <div class="toggle-group" id="le-gender-group" data-input="le-gender">
+                                <button type="button" class="toggle-pill" data-value="Male">♂ Male</button>
+                                <button type="button" class="toggle-pill" data-value="Female">♀ Female</button>
+                            </div>
+                            <input type="hidden" id="le-gender" />
+                        </div>
+                        <div class="form-group form-full">
+                            <label class="form-label">Community <span class="req">*</span></label>
+                            <div class="toggle-group" id="le-community-group" data-input="le-community">
+                                <button type="button" class="toggle-pill" data-value="OBC">OBC</button>
+                                <button type="button" class="toggle-pill" data-value="MBC">MBC</button>
+                                <button type="button" class="toggle-pill" data-value="OC">OC</button>
+                                <button type="button" class="toggle-pill" data-value="SC">SC</button>
+                                <button type="button" class="toggle-pill" data-value="ST">ST</button>
+                                <button type="button" class="toggle-pill" data-value="Others">Others</button>
+                            </div>
+                            <input type="hidden" id="le-community" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="le-referred">Referred By <span class="req">*</span></label>
+                            <input type="text" id="le-referred" class="form-control caps-field"
+                                placeholder="REFERRED BY (IF ANY)"  required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ CONTACT DETAILS ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">📞 Contact Details</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid form-grid-2">
+                        <div class="form-group form-full">
+                            <label class="form-label" for="le-address">Address <span class="req">*</span></label>
+                            <textarea id="le-address" class="form-control" placeholder="Full home address…"
+                                required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="le-parent-mobile">Parent Mobile <span
+                                    class="req">*</span></label>
+                            <input type="tel" id="le-parent-mobile" class="form-control"
+                                placeholder="Parent 10-digit mobile" maxlength="10" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="le-student-mobile">Student Mobile <span class="req">*</span></label>
+                            <input type="tel" id="le-student-mobile" class="form-control"
+                                placeholder="Student 10-digit mobile" maxlength="10" />
+                        </div>
+                        <div class="form-group form-full">
+                            <label class="form-label" for="le-email">Email Address <span class="req">*</span></label>
+                            <input type="email" id="le-email" class="form-control" placeholder="student@email.com"  required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ SSLC DETAILS ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">📋 SSLC Details</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label" for="le-sslc-year">Month &amp; Year of Passing <span class="req">*</span></label>
+                            <input type="month" id="le-sslc-year" class="form-control"  required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Marks / Max <span class="req">*</span></label>
+                            <div class="marks-row">
+                                <input type="number" id="le-sslc-marks" class="form-control" placeholder="Marks" min="0"
+                                    max="500" data-marks="500,le-sslc-perc"  required />
+                                <span class="marks-sep">/</span>
+                                <div class="marks-total">500</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="le-sslc-perc">Percentage</label>
+                            <input type="text" id="le-sslc-perc" class="form-control" readonly
+                                placeholder="Auto-calculated" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="le-sslc-school">School Name <span class="req">*</span></label>
+                            <select id="le-sslc-school" class="form-control" data-school-select="other-school-wrap-le" required>
+                                <option value="">— Select School —</option>
+                                <option>Petit Seminaire Higher Secondary School</option>
+                                <option>St. Patrick's Higher Secondary School</option>
+                                <option>Vivekananda Higher Secondary School</option>
+                                <option>Amalorpavam Higher Secondary School</option>
+                                <option>Immaculate Heart of Mary Girls HSS</option>
+                                <option>Achariya Bala Siksha Mandir</option>
+                                <option>Jawahar Navodaya Vidyalaya</option>
+                                <option>Seventh Day Adventist School</option>
+                                <option>Alpha Matriculation School</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div id="other-school-wrap-le">
+                                <input type="text" id="le-sslc-school-other" class="form-control caps-field"
+                                    placeholder="ENTER SCHOOL NAME" style="margin-top:.5rem"  required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ DIPLOMA DETAILS ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">📜 Diploma Details</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label" for="le-diploma-course">Diploma Course Name <span
+                                    class="req">*</span></label>
+                            <input type="text" id="le-diploma-course" class="form-control caps-field"
+                                placeholder="E.G. DIPLOMA IN MECH ENGINEERING" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="le-diploma-year">Month &amp; Year of Passing <span
+                                    class="req">*</span></label>
+                            <input type="month" id="le-diploma-year" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="le-diploma-perc">Percentage upto VI Semester <span
+                                    class="req">*</span></label>
+                            <input type="number" id="le-diploma-perc" class="form-control" placeholder="E.g. 78.50"
+                                step="0.01" min="0" max="100" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ BRANCH SELECTION ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">⚙️ Branch Selection (Select One)</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="toggle-group branch-grid" id="le-branch-group" data-input="le-branch">
+                        <button type="button" class="toggle-pill" data-value="MECH">MECH</button>
+                        <button type="button" class="toggle-pill" data-value="ECE">ECE</button>
+                        <button type="button" class="toggle-pill" data-value="CSE">CSE</button>
+                        <button type="button" class="toggle-pill" data-value="IT">IT</button>
+                        <button type="button" class="toggle-pill" data-value="EEE">EEE</button>
+                        <button type="button" class="toggle-pill" data-value="FTECH">FTECH</button>
+                        <button type="button" class="toggle-pill" data-value="ROBOTICS">ROBOTICS</button>
+                        <button type="button" class="toggle-pill" data-value="IOT">IOT</button>
+                        <button type="button" class="toggle-pill" data-value="AIML">AIML</button>
+                    </div>
+                    <input type="hidden" id="le-branch" />
+                </div>
+            </div>
+
+            <!-- ══ SIGNATURE ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">✍️ Signature</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="signature-row">
+                        <div>
+                            <div class="form-label" style="margin-bottom:.5rem">Parent / Guardian Signature</div>
+                            <div class="signature-box">
+                                <div class="signature-line"></div>
+                                <div class="signature-label">Parent / Guardian Signature</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-label" style="margin-bottom:.5rem">Student Signature</div>
+                            <div class="signature-box">
+                                <div class="signature-line"></div>
+                                <div class="signature-label">Student Signature</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="form-actions no-print">
+                <button type="button" class="btn btn-secondary" onclick="location.href='index.html'">← Back to
+                    Home</button>
+                <button type="button" class="btn btn-secondary print-btn">🖨️ Print Form</button>
+                <button type="button" class="btn btn-download-pdf btn" onclick="downloadLEPDF()">⬇️ Download
+                    PDF</button>
+                <button type="button" class="btn btn-primary" id="le-submit-btn">Submit Application</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="js/script.js"></script>
+    <!-- PDF Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/pdf-generator.js"></script>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        © 2026 <span>AIML Department</span> · Maanakula Vinayagar Institute of Technology. All rights reserved.
+    </footer>
+</body>
+
+</html>

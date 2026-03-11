@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UG Phase 2 Admission Form – Portal 2026</title>
+    <meta name="description"
+        content="UG Phase 2 Admission Enquiry Form 2026 – Fill in your details for BBA / BCA programs." />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        /* Mark colour feedback */
+        .mark-pass {
+            border-color: #22c55e !important;
+            background: #f0fdf4 !important;
+        }
+
+        .mark-fail {
+            border-color: #ef4444 !important;
+            background: #fef2f2 !important;
+        }
+
+        /* Community Others reveal */
+        .community-other-wrap {
+            display: none;
+            margin-top: .6rem;
+        }
+
+        .community-other-wrap.visible {
+            display: block;
+        }
+
+        /* Subject row: name + mark side by side */
+        .subject-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: .5rem;
+            align-items: end;
+        }
+
+        .subject-mark-group {
+            display: flex;
+            align-items: center;
+            gap: .35rem;
+        }
+
+        .subject-mark-group input {
+            width: 80px;
+        }
+
+        .subject-mark-group .marks-sep {
+            color: #888;
+            font-weight: 600;
+        }
+
+        .subject-mark-group .marks-total {
+            font-size: .8rem;
+            color: #888;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+
+  <!-- MVIT COLLEGE HEADER -->
+  <div class="college-header no-print">
+    <img src="new_college_logo.png" alt="MVIT Logo" class="clg-logo" />
+    <div class="college-header-text">
+        <div class="college-header-name">
+            <span class="clg-abbr">MANAKULA VINAYAGAR</span><br>INSTITUTE OF TECHNOLOGY
+        </div>
+        <div class="college-header-divider"></div>
+        <div class="college-header-sub">Affiliated to Pondicherry University &nbsp;|&nbsp; Approved by AICTE, New Delhi</div>
+        <div class="college-header-sub">Accredited by NBA, New Delhi &amp; NAAC with 'A' Grade</div>
+        <div class="college-header-tag">An Autonomous Institution &nbsp;&bull;&nbsp; Kaliteerthalkuppam, Puducherry – 605 107</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="index.html">
+            <div class="navbar-logo">🎓</div>
+            <span class="navbar-title">Admission <span>Portal</span></span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="ug.html">UG Admission</a>
+            <a class="nav-link active" href="ug2.html">UG Phase 2</a>
+            <a class="nav-link" href="pg.html">PG Admission</a>
+            <a class="nav-link" href="lateral.html">Lateral Entry</a>
+            <a class="nav-link" href="admin.html">Admin</a>
+        </div>
+    </nav>
+
+    <div class="form-page">
+
+        <!-- PAGE HEADER -->
+        <div class="form-page-header">
+            <div>
+                <div class="form-page-title">UG Phase 2 Admission Form
+                    <span>BBA / BCA – Enquiry 2026</span>
+                </div>
+            </div>
+            <button class="print-btn no-print">🖨️ Print Form</button>
+        </div>
+
+        <form id="ug2-form" novalidate>
+
+            <!-- ══ PERSONAL INFORMATION ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">👤 Personal Information</div>
+                    <div>
+                        <div class="section-date-label">Date</div>
+                        <input type="date" class="section-date-input" id="ug2-date"  required />
+                    </div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label" for="ug2-name">Student Name <span class="req">*</span></label>
+                            <input type="text" id="ug2-name" class="form-control caps-field"
+                                placeholder="STUDENT FULL NAME" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="ug2-father">Father's Name <span class="req">*</span></label>
+                            <input type="text" id="ug2-father" class="form-control caps-field"
+                                placeholder="FATHER'S FULL NAME" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="ug2-dob">Date of Birth <span class="req">*</span></label>
+                            <input type="date" id="ug2-dob" class="form-control" data-dob="ug2-age" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="ug2-age">Age (Auto-calculated) <span class="req">*</span></label>
+                            <input type="number" id="ug2-age" class="form-control" readonly placeholder="Auto" />
+                        </div>
+                        <div class="form-group form-full">
+                            <label class="form-label">Gender <span class="req">*</span></label>
+                            <div class="toggle-group" id="ug2-gender-group" data-input="ug2-gender">
+                                <button type="button" class="toggle-pill" data-value="Male">♂ Male</button>
+                                <button type="button" class="toggle-pill" data-value="Female">♀ Female</button>
+                            </div>
+                            <input type="hidden" id="ug2-gender" />
+                        </div>
+                        <div class="form-group form-full">
+                            <label class="form-label">Community <span class="req">*</span></label>
+                            <div class="toggle-group" id="ug2-community-group" data-input="ug2-community">
+                                <button type="button" class="toggle-pill" data-value="OBC">OBC</button>
+                                <button type="button" class="toggle-pill" data-value="MBC">MBC</button>
+                                <button type="button" class="toggle-pill" data-value="OC">OC</button>
+                                <button type="button" class="toggle-pill" data-value="SC">SC</button>
+                                <button type="button" class="toggle-pill" data-value="ST">ST</button>
+                                <button type="button" class="toggle-pill" data-value="Others"
+                                    id="ug2-community-others-btn">Others</button>
+                            </div>
+                            <input type="hidden" id="ug2-community" />
+                            <!-- reveal when Others selected -->
+                            <div class="community-other-wrap" id="ug2-community-other-wrap">
+                                <input type="text" id="ug2-community-other" class="form-control caps-field"
+                                    placeholder="SPECIFY YOUR COMMUNITY"  required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="ug2-referred">Referred By <span class="req">*</span></label>
+                            <input type="text" id="ug2-referred" class="form-control caps-field"
+                                placeholder="REFERRED BY (IF ANY)"  required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ CONTACT DETAILS ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">📞 Contact Details</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid form-grid-2">
+                        <div class="form-group form-full">
+                            <label class="form-label" for="ug2-address">Address <span class="req">*</span></label>
+                            <textarea id="ug2-address" class="form-control" placeholder="Full home address…"
+                                required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="ug2-parent-mobile">Parent Mobile <span
+                                    class="req">*</span></label>
+                            <input type="tel" id="ug2-parent-mobile" class="form-control"
+                                placeholder="Parent 10-digit mobile" maxlength="10" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="ug2-student-mobile">Student Mobile <span class="req">*</span></label>
+                            <input type="tel" id="ug2-student-mobile" class="form-control"
+                                placeholder="Student 10-digit mobile" maxlength="10"  required />
+                        </div>
+                        <div class="form-group form-full">
+                            <label class="form-label" for="ug2-email">Email Address <span class="req">*</span></label>
+                            <input type="email" id="ug2-email" class="form-control" placeholder="student@email.com"  required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ SSLC DETAILS ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">📋 SSLC Details</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label" for="ug2-sslc-year">Month &amp; Year of Passing <span
+                                    class="req">*</span></label>
+                            <input type="month" id="ug2-sslc-year" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Marks / Percentage <span class="req">*</span></label>
+                            <div class="marks-row">
+                                <input type="number" id="ug2-sslc-marks" class="form-control" placeholder="Marks"
+                                    min="0" max="500" data-marks="500,ug2-sslc-perc"  required />
+                                <span class="marks-sep">/</span>
+                                <div class="marks-total">500</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="ug2-sslc-perc">Percentage <span class="req">*</span></label>
+                            <input type="text" id="ug2-sslc-perc" class="form-control" readonly
+                                placeholder="Auto-calculated" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="ug2-sslc-school">School Name <span
+                                    class="req">*</span></label>
+                            <select id="ug2-sslc-school" class="form-control" data-school-select="ug2-other-school-wrap"
+                                required>
+                                <option value="">— Select School —</option>
+                                <option>Petit Seminaire Higher Secondary School</option>
+                                <option>St. Patrick's Higher Secondary School</option>
+                                <option>Vivekananda Higher Secondary School</option>
+                                <option>Amalorpavam Higher Secondary School</option>
+                                <option>Immaculate Heart of Mary Girls HSS</option>
+                                <option>Achariya Bala Siksha Mandir</option>
+                                <option>Jawahar Navodaya Vidyalaya</option>
+                                <option>Seventh Day Adventist School</option>
+                                <option>Alpha Matriculation School</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div id="ug2-other-school-wrap">
+                                <input type="text" id="ug2-sslc-school-other" class="form-control caps-field"
+                                    placeholder="ENTER SCHOOL NAME" style="margin-top:.5rem"  required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ HSC DETAILS ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">📚 HSC Details</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="form-grid form-grid-2">
+                        <div class="form-group">
+                            <label class="form-label" for="ug2-hsc-year">Month &amp; Year of Passing <span
+                                    class="req">*</span></label>
+                            <input type="month" id="ug2-hsc-year" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="ug2-hsc-school">School Name <span
+                                    class="req">*</span></label>
+                            <select id="ug2-hsc-school" class="form-control"
+                                data-school-select="ug2-other-hsc-school-wrap" required>
+                                <option value="">— Select School —</option>
+                                <option>Petit Seminaire Higher Secondary School</option>
+                                <option>St. Patrick's Higher Secondary School</option>
+                                <option>Vivekananda Higher Secondary School</option>
+                                <option>Amalorpavam Higher Secondary School</option>
+                                <option>Immaculate Heart of Mary Girls HSS</option>
+                                <option>Achariya Bala Siksha Mandir</option>
+                                <option>Jawahar Navodaya Vidyalaya</option>
+                                <option>Seventh Day Adventist School</option>
+                                <option>Alpha Matriculation School</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div id="ug2-other-hsc-school-wrap">
+                                <input type="text" id="ug2-hsc-school-other" class="form-control caps-field"
+                                    placeholder="ENTER SCHOOL NAME" style="margin-top:.5rem"  required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3 custom subjects -->
+                    <div style="margin-top:1rem;">
+                        <div class="form-label" style="margin-bottom:.75rem; font-weight:600;">Main Subjects
+                        </div>
+
+                        <!-- Subject 1 -->
+                        <div class="form-group" style="margin-bottom:.85rem;">
+                            <label class="form-label">Subject 1 <span class="req">*</span></label>
+                            <div class="subject-row">
+                                <input type="text" id="ug2-sub1-name" class="form-control caps-field"
+                                    placeholder="Subject Name (e.g. MATHS)"  required />
+                                <div class="subject-mark-group">
+                                    <input type="number" id="ug2-sub1-mark" class="form-control" placeholder="Marks"
+                                        min="0" max="100"  required />
+                                    <span class="marks-sep">/</span>
+                                    <div class="marks-total">100</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Subject 2 -->
+                        <div class="form-group" style="margin-bottom:.85rem;">
+                            <label class="form-label">Subject 2 <span class="req">*</span></label>
+                            <div class="subject-row">
+                                <input type="text" id="ug2-sub2-name" class="form-control caps-field"
+                                    placeholder="Subject Name (e.g. PHYSICS)"  required />
+                                <div class="subject-mark-group">
+                                    <input type="number" id="ug2-sub2-mark" class="form-control" placeholder="Marks"
+                                        min="0" max="100"  required />
+                                    <span class="marks-sep">/</span>
+                                    <div class="marks-total">100</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Subject 3 -->
+                        <div class="form-group" style="margin-bottom:.85rem;">
+                            <label class="form-label">Subject 3 <span class="req">*</span></label>
+                            <div class="subject-row">
+                                <input type="text" id="ug2-sub3-name" class="form-control caps-field"
+                                    placeholder="Subject Name (e.g. COMPUTER SCIENCE)"  required />
+                                <div class="subject-mark-group">
+                                    <input type="number" id="ug2-sub3-mark" class="form-control" placeholder="Marks"
+                                        min="0" max="100"  required />
+                                    <span class="marks-sep">/</span>
+                                    <div class="marks-total">100</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Auto-calculated total -->
+                        <div class="form-grid form-grid-2" style="margin-top:.5rem;">
+                            <div class="form-group">
+                                <label class="form-label" for="ug2-main-total">Main Subjects Total
+                                    <span style="font-weight:400;color:#888;">(out of 300)</span> <span class="req">*</span></label>
+                                <div class="marks-row">
+                                    <input type="text" id="ug2-main-total" class="form-control" readonly
+                                        placeholder="Auto" />
+                                    <span class="marks-sep">/</span>
+                                    <div class="marks-total">300</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="ug2-main-perc">Main Subjects Percentage
+                                    <span style="font-weight:400;color:#888;">(/ 300)</span> <span class="req">*</span></label>
+                                <input type="text" id="ug2-main-perc" class="form-control" readonly
+                                    placeholder="Auto-calculated" style="background:var(--input-readonly-bg,#f1f5f9)" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="ug2-hsc-total">Overall Total Marks
+                                    <span style="font-weight:400;color:#888;">(out of 600)</span> <span class="req">*</span>
+                                <div class="marks-row">
+                                    <input type="number" id="ug2-hsc-total" class="form-control"
+                                        placeholder="Total out of 600" min="0" max="600"  required />
+                                    <span class="marks-sep">/</span>
+                                    <div class="marks-total">600</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="ug2-hsc-perc">Overall Percentage
+                                    <span style="font-weight:400;color:#888;">(/ 600)</span> <span class="req">*</span>
+                                <input type="text" id="ug2-hsc-perc" class="form-control" readonly
+                                    placeholder="Auto-calculated" style="background:var(--input-readonly-bg,#f1f5f9)" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ COURSE SELECTION ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">🎓 Course Opted (Select One)</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="toggle-group branch-grid" id="ug2-branch-group" data-input="ug2-branch">
+                        <button type="button" class="toggle-pill" data-value="BBA">BBA</button>
+                        <button type="button" class="toggle-pill" data-value="BCA">BCA</button>
+                    </div>
+                    <input type="hidden" id="ug2-branch" />
+                </div>
+            </div>
+
+            <!-- ══ SIGNATURE ══ -->
+            <div class="form-card">
+                <div class="section-header">
+                    <div class="section-title">✍️ Signature</div>
+                    <div></div>
+                </div>
+                <div class="section-body">
+                    <div class="signature-row">
+                        <div>
+                            <div class="form-label" style="margin-bottom:.5rem">Parent / Guardian Signature</div>
+                            <div class="signature-box">
+                                <div class="signature-line"></div>
+                                <div class="signature-label">Parent / Guardian Signature</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-label" style="margin-bottom:.5rem">Student Signature</div>
+                            <div class="signature-box">
+                                <div class="signature-line"></div>
+                                <div class="signature-label">Student Signature</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="form-actions no-print">
+                <button type="button" class="btn btn-secondary" onclick="location.href='index.html'">← Back to
+                    Home</button>
+                <button type="button" class="btn btn-secondary print-btn">🖨️ Print Form</button>
+                <button type="button" class="btn btn-download-pdf btn" onclick="downloadUG2PDF()">⬇️ Download
+                    PDF</button>
+                <button type="button" class="btn btn-primary" id="ug2-submit-btn">Submit Application</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="js/script.js"></script>
+    <!-- PDF Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/pdf-generator.js"></script>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        © 2026 <span>AIML Department</span> · Maanakula Vinayagar Institute of Technology. All rights reserved.
+    </footer>
+</body>
+
+</html>
